@@ -70,7 +70,7 @@ sudo apt update && sudo apt install codium -y
 
 # use microsoft extensions lib
 # sudo find / -name product.json # reference for finding the full one
-touch ~/.config/VSCodium; 
+touch ~/.config/VSCodium/product.json; 
 echo "
 {
   \"extensionsGallery\": {
@@ -81,7 +81,7 @@ echo "
     \"recommendationsUrl\": \"\"
   }
 }
-" >> ~/.config/VSCodium;
+" >> ~/.config/VSCodium/product.json;
 
 #########################
 ## install node + npm + nvm
