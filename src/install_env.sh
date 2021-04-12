@@ -1,11 +1,9 @@
 #########################
 ## change keybind of caps lock modifier -> control modifier, && caps lock -> escape
-## https://gitlab.com/interception/linux/plugins/caps2esc
 #########################
-sudo add-apt-repository ppa:deafmute/interception
-sudo apt install interception-tools
-sudo apt install interception-caps2esc
-reboot; # restart the computer to get those in effect
+sudo apt install xcape -y;
+cp ~/git/more/dev-env-setup/src/utils/caps2ctrlesc/caps2ctrlesc.desktop ~/.config/autostart # make the utility autostart
+reboot # reboot to have it take effect
 
 #########################
 ## install chrome
@@ -70,7 +68,7 @@ sudo apt update && sudo apt install codium -y
 
 # use microsoft extensions lib
 # sudo find / -name product.json # reference for finding the full one
-touch ~/.config/VSCodium/product.json; 
+touch ~/.config/VSCodium/product.json;
 echo "
 {
   \"extensionsGallery\": {
@@ -86,7 +84,7 @@ echo "
 #########################
 ## install node + npm + nvm
 #########################
-browser https://github.com/nvm-sh/nvm; # check if newer version avail; update the below version if it is 
+browser https://github.com/nvm-sh/nvm; # check if newer version avail; update the below version if it is
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash;
 nvm install lts/erbium # and install v12 lts
 
