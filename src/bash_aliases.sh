@@ -1,5 +1,5 @@
 # open notes
-alias notes='vim ~/git/Notes/main.txt'
+alias notes='vim ~/git/notes/main.txt'
 
 # copy paste
 alias pbcopy='xclip -selection clipboard'
@@ -28,3 +28,9 @@ alias op.signin='eval $(op signin my)'
 
 # make it easier to open the browser
 alias browser='google-chrome'
+
+# make it easy to speed test internet connection
+alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'
+
+# make it easy to change brightness beyond default brightness range
+alias brightness='xrandr --output eDP-1 --brightness'

@@ -27,6 +27,7 @@ google-chrome https://github.com/settings/keys
 git config --global user.email "u...k...@gmail.com" # change me to your email
 git config --global user.name "U... K..." # change me to your name
 git config --global alias.lg "log --pretty=format:'%C(yellow)%h %Cred%ad %C(cyan)%an%Cgreen%d %Creset%s' --date=short"
+git config --global pull.ff only # make sure that pull only ever automatically fasts forward
 
 ########################
 ## clone this repo
@@ -62,8 +63,8 @@ sudo apt install vim -y # note: ~/.zshrc already defines that this is default
 ## install codium
 #########################
 # per https://vscodium.com/
-wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
-echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list.d/vscodium.list
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/etc/apt/trusted.gpg.d/vscodium.gpg
+echo 'deb https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list.d/vscodium.list
 sudo apt update && sudo apt install codium -y
 
 # use microsoft extensions lib
@@ -178,5 +179,12 @@ sudo apt install openvpn network-manager-openvpn-gnome -y
 #########################
 sudo apt install gnome-shell-extension-appindicator gnome-shell-extension-system-monitor -y
 logout # login logout of DE
+# then search "extensions" in settings and turn it on manually
 
-
+########################
+## add github cli tool
+#######################
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install gh
