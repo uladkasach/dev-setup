@@ -2,8 +2,8 @@
 ## change keybind of caps lock modifier -> control modifier, && caps lock -> escape
 #########################
 sudo apt install xcape -y;
-cp ~/git/more/dev-env-setup/src/utils/caps2ctrlesc/caps2ctrlesc.desktop ~/.config/autostart # make the utility autostart
-reboot # reboot to have it take effect
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"; # make caps work as ctrl; https://unix.stackexchange.com/a/66657/77522
+grep -qxF 'xcape -e "'"Caps_Lock=Escape"'"' ~/.profile || echo '\n# map caps key to escape if pressed on its own\nxcape -e "'"Caps_Lock=Escape"'"' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
 ## install chrome
@@ -188,3 +188,8 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
 sudo apt update
 sudo apt install gh
+
+#######################
+## add the other github cli tool :roll_eyes:
+#######################
+sudo apt install hub

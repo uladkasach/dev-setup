@@ -20,8 +20,9 @@ alias use.ahbode.prod='export AWS_PROFILE=ahbode.prod'
 alias use.whodis.prod='export AWS_PROFILE=whodis.prod'
 alias use.alistokrad.prod='export AWS_PROFILE=alistokrad.prod'
 
-# make sure caps acts like control
-alias caps2control='setxkbmap -option "'"caps:ctrl_modifier"'"'
+# make it easy to manually update the keymappings, in case they drop off for some reason
+alias kmap.caps2ctrl='setxkbmap -option "'"caps:ctrl_modifier"'"'
+alias kmap.caps2esc='xcape -e "'"Caps_Lock=Escape"'" &'
 
 # make signing into onepass easier
 alias op.signin='eval $(op signin my)'
@@ -34,3 +35,7 @@ alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlay
 
 # make it easy to change brightness beyond default brightness range
 alias brightness='xrandr --output eDP-1 --brightness'
+
+# make it easy to restart utils
+alias restart.bluetooth='sudo systemctl restart bluetooth'
+alias restart.wifi='sudo systemctl restart NetworkManager.service'
