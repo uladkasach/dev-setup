@@ -39,3 +39,6 @@ alias brightness='xrandr --output eDP-1 --brightness'
 # make it easy to restart utils
 alias restart.bluetooth='sudo systemctl restart bluetooth'
 alias restart.wifi='sudo systemctl restart NetworkManager.service'
+
+# make it easy to update bashalias
+alias devenv.sync.bashalias='cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases'
