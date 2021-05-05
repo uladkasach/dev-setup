@@ -47,3 +47,8 @@ alias devenv.sync.bashalias='cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.
 alias power.suspend='systemctl suspend' # todo, swap to `suspend-then-hibernate` when supported
 alias power.off='shutdown -h now '
 alias power.restart='reboot'
+
+# make it easy to work with bluetooth devices
+alias bluetooth.devices='bluetoothctl devices';
+alias bluetooth.connect='bluetoothctl connect';
+alias bluetooth.disconnect='bluetoothctl disconnect';
