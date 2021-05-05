@@ -6,6 +6,11 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier'
 grep -qxF 'xcape -e "'"Caps_Lock=Escape"'"' ~/.profile || echo '\n# map caps key to escape if pressed on its own\nxcape -e "'"Caps_Lock=Escape"'"' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
+## make sure your pop-os laptop always starts in battery saver mode
+#########################
+grep -qxF 'system76-power profile battery' ~/.profile || echo '\n# start in battery saver\nsystem76-power profile battery' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
+
+#########################
 ## install chrome
 #########################
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads;
@@ -190,6 +195,6 @@ sudo apt update
 sudo apt install gh
 
 #######################
-## add the other github cli tool :roll_eyes:
+## add the other github cli tool 🙄
 #######################
 sudo apt install hub
