@@ -59,6 +59,11 @@ exec zsh
 # note: if git icon looks weird, make sure to install font that supports it: https://github.com/tonsky/FiraCode :
 sudo apt install fonts-firacode
 
+#######################
+## install bash alias dependencies
+#######################
+sudo apt install xclip -y # required for pbpaste, pbcopy
+
 #########################
 ## install vim
 #########################
@@ -198,3 +203,12 @@ sudo apt install gh
 ## add the other github cli tool 🙄
 #######################
 sudo apt install hub
+
+#######################
+## install ngrok
+#######################
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P ~/Downloads;
+unzip ~/Downloads/ngrok-stable-linux-amd64.zip -d ~/Downloads/ngrok-stable-linux-amd64;
+sudo mv ~/Downloads/ngrok-stable-linux-amd64/ngrok /usr/bin/ngrok
+ngrok authtoken __from_you_account_settings__
+ngrok help
