@@ -52,3 +52,8 @@ alias power.restart='reboot'
 alias bluetooth.devices='bluetoothctl devices';
 alias bluetooth.connect='bluetoothctl connect';
 alias bluetooth.disconnect='bluetoothctl disconnect';
+
+# make it easy to adjust brightness
+alias keyboard.backlight.off='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 0'
+alias keyboard.backlight.dim='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 1'
+alias keyboard.backlight.bright='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 2'

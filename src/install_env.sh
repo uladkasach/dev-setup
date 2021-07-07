@@ -33,6 +33,7 @@ git config --global user.email "u...k...@gmail.com" # change me to your email
 git config --global user.name "U... K..." # change me to your name
 git config --global alias.lg "log --pretty=format:'%C(yellow)%h %Cred%ad %C(cyan)%an%Cgreen%d %Creset%s' --date=short"
 git config --global pull.ff only # make sure that pull only ever automatically fasts forward
+git config --global init.defaultBranch main # default root branch name to `main`
 
 ########################
 ## clone this repo
@@ -67,7 +68,14 @@ sudo apt install xclip -y # required for pbpaste, pbcopy
 #########################
 ## install vim
 #########################
-sudo apt install vim -y # note: ~/.zshrc already defines that this is default
+sudo apt install vim -y # note: ~/.zshrc already defines that this is defaulta
+
+#########################
+## install neovim
+#########################
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
 
 #########################
 ## install codium
@@ -184,12 +192,6 @@ sudo apt install openvpn network-manager-openvpn-gnome -y
 #  mkdir -p ~/.vpn && op get document .vpn/main.connection.ovpn --output ~/.vpn/main.connection.ovpn
 #  sudo openvpn --config ~/.vpn/main.connection.ovpn
 
-#########################
-## show cpu usage in pop os bar
-#########################
-sudo apt install gnome-shell-extension-appindicator gnome-shell-extension-system-monitor -y
-logout # login logout of DE
-# then search "extensions" in settings and turn it on manually
 
 ########################
 ## add github cli tool
@@ -212,3 +214,26 @@ unzip ~/Downloads/ngrok-stable-linux-amd64.zip -d ~/Downloads/ngrok-stable-linux
 sudo mv ~/Downloads/ngrok-stable-linux-amd64/ngrok /usr/bin/ngrok
 ngrok authtoken __from_you_account_settings__
 ngrok help
+
+#######################
+## install gnome extensions: https://support.system76.com/articles/customize-gnome
+#######################
+sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar
+sudo apt install -y gnome-shell-pomodoro # show pomodoro extensinon
+sudo apt install -y gnome-shell-extension-remove-dropdown-arrows # until gnome 40, remove the ugly arrows on app indicators: https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows
+sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' # https://github.com/hslbck/gnome-shell-extension-radio
+logout # login logout of DE
+# then search "extensions" in settings and turn them on manually
+
+#######################
+## install support for AAC+ audio format codec (for comedy-radio.ru stream)
+#######################
+# comedy-radio.ru : https://pub0101.101.ru:8000/stream/air/aac/64/202
+sudo apt-get install ubuntu-restricted-extras
+sudo apt-get install libavcodec58 ffmpeg
+
+#######################
+## make sure that nightlight is enabled
+#######################
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true ## https://askubuntu.com/questions/1246195/how-to-turn-on-night-light-blue-light-filter-in-ubuntu-20-04
+
