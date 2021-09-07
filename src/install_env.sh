@@ -177,6 +177,11 @@ docker run hello-world # check we can run without root
 sudo apt install docker-compose
 
 #########################
+## install psql
+#########################
+sudo apt-get install -y postgresql-client
+
+#########################
 ## bump max files watched
 ##
 ## otherwise, we'll have errors watching files
@@ -221,7 +226,7 @@ ngrok help
 sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar
 sudo apt install -y gnome-shell-pomodoro # show pomodoro extensinon
 sudo apt install -y gnome-shell-extension-remove-dropdown-arrows # until gnome 40, remove the ugly arrows on app indicators: https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows
-sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' # https://github.com/hslbck/gnome-shell-extension-radio
+sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' && browser https://github.com/hslbck/gnome-shell-extension-radio
 logout # login logout of DE
 # then search "extensions" in settings and turn them on manually
 

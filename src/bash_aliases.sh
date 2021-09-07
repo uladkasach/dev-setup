@@ -57,3 +57,7 @@ alias bluetooth.disconnect='bluetoothctl disconnect';
 alias keyboard.backlight.off='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 0'
 alias keyboard.backlight.dim='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 1'
 alias keyboard.backlight.bright='sudo tee /sys/class/leds/dell::kbd_backlight/brightness <<< 2'
+
+# make it easy to fetch the weather
+alias weather.in.here='curl wttr.in'
+alias weather.in.indianapolis='curl wttr.in/Indianapolis'
