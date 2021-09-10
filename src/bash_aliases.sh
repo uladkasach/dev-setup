@@ -16,6 +16,7 @@ alias jal='LOCALLY=true ja'
 
 # aws profiles
 alias use.tugether='export AWS_PROFILE=tugether'
+alias use.ahbode.dev='export AWS_PROFILE=ahbode.dev'
 alias use.ahbode.prod='export AWS_PROFILE=ahbode.prod'
 alias use.whodis.prod='export AWS_PROFILE=whodis.prod'
 alias use.alistokrad.prod='export AWS_PROFILE=alistokrad.prod'
