@@ -21,6 +21,12 @@ alias use.ahbode.prod='export AWS_PROFILE=ahbode.prod'
 alias use.whodis.prod='export AWS_PROFILE=whodis.prod'
 alias use.alistokrad.prod='export AWS_PROFILE=alistokrad.prod'
 
+# github token
+alias use.github.admin='export GITHUB_TOKEN=$(op get item github.admin.pat | jq -r .details.password)'
+
+# terraform caching, for when on slow internet
+alias use.terraform.caching='mkdir -p $HOME/.terraform.d/plugin-cache && export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"' # https://www.terraform.io/docs/cli/config/config-file.html#provider-plugin-cache
+
 # make it easy to manually update the keymappings, in case they drop off for some reason
 alias kmap.caps2ctrl='setxkbmap -option "'"caps:ctrl_modifier"'"'
 alias kmap.caps2esc='xcape -e "'"Caps_Lock=Escape"'" &'
