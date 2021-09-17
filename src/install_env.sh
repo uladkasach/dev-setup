@@ -242,3 +242,7 @@ sudo apt-get install libavcodec58 ffmpeg
 #######################
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true ## https://askubuntu.com/questions/1246195/how-to-turn-on-night-light-blue-light-filter-in-ubuntu-20-04
 
+#######################
+## decrease mtu to make more reliable on poorer networks
+#######################
+sudo ifconfig wlp113s0 mtu 1200 # https://serverfault.com/a/670081/276221 (https://www.cloudflare.com/learning/network-layer/what-is-mtu/)
