@@ -14,6 +14,9 @@ alias ji='npx jest -c jest.integration.config.js'
 alias ja='npx jest -c jest.acceptance.config.js'
 alias jal='LOCALLY=true ja'
 
+# quick terraform alias
+alias tf='terraform'
+
 # aws profiles
 alias use.tugether='export AWS_PROFILE=tugether'
 alias use.ahbode.dev='export AWS_PROFILE=ahbode.dev'

@@ -31,9 +31,10 @@ google-chrome https://github.com/settings/keys
 #######################
 git config --global user.email "u...k...@gmail.com" # change me to your email
 git config --global user.name "U... K..." # change me to your name
-git config --global alias.lg "log --pretty=format:'%C(yellow)%h %Cred%ad %C(cyan)%an%Cgreen%d %Creset%s' --date=short"
 git config --global pull.ff only # make sure that pull only ever automatically fasts forward
 git config --global init.defaultBranch main # default root branch name to `main`
+git config --global alias.lg "log --pretty=format:'%C(yellow)%h %Cred%ad %C(cyan)%an%Cgreen%d %Creset%s' --date=short" # more concise alt to git log
+git config --global alias.root 'rev-parse --show-toplevel' # e.g., `cd $(git root)`
 
 ########################
 ## clone this repo
@@ -245,4 +246,4 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true #
 #######################
 ## decrease mtu to make more reliable on poorer networks
 #######################
-sudo ifconfig wlp113s0 mtu 1200 # https://serverfault.com/a/670081/276221 (https://www.cloudflare.com/learning/network-layer/what-is-mtu/)
+sudo ifconfig wlp113s0 mtu 1400 # https://serverfault.com/a/670081/276221 (https://www.cloudflare.com/learning/network-layer/what-is-mtu/)
