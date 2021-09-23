@@ -35,6 +35,8 @@ git config --global pull.ff only # make sure that pull only ever automatically f
 git config --global init.defaultBranch main # default root branch name to `main`
 git config --global alias.lg "log --pretty=format:'%C(yellow)%h %Cred%ad %C(cyan)%an%Cgreen%d %Creset%s' --date=short" # more concise alt to git log
 git config --global alias.root 'rev-parse --show-toplevel' # e.g., `cd $(git root)`
+git config --global alias.recommit 'commit --amend --no-edit' # e.g., to update the last commit in place
+git config --global alias.shove 'push origin HEAD --force-with-lease' # e.g., git push current branches commits, as long as we have all the commits already too
 
 ########################
 ## clone this repo
