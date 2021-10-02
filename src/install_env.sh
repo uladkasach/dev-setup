@@ -233,6 +233,11 @@ logout # login logout of DE
 # then search "extensions" in settings and turn them on manually
 
 #######################
+## restore gnome-extension-radio channel-list
+#######################
+mkdir -p ~/.gse-radio && op get document .gse-radio/channelList.json --output ~/.gse-radio/channelList.json
+
+#######################
 ## install support for AAC+ audio format codec (for comedy-radio.ru stream)
 #######################
 # comedy-radio.ru : https://pub0101.101.ru:8000/stream/air/aac/64/202
