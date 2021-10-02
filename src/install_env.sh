@@ -200,7 +200,6 @@ sudo apt install openvpn network-manager-openvpn-gnome -y
 #  mkdir -p ~/.vpn && op get document .vpn/main.connection.ovpn --output ~/.vpn/main.connection.ovpn
 #  sudo openvpn --config ~/.vpn/main.connection.ovpn
 
-
 ########################
 ## add github cli tool
 #######################
@@ -247,5 +246,7 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true #
 
 #######################
 ## decrease mtu to make more reliable on poorer networks
+## - https://serverfault.com/a/670081/276221
+## - https://www.cloudflare.com/learning/network-layer/what-is-mtu/
 #######################
-sudo ifconfig wlp113s0 mtu 1400 # https://serverfault.com/a/670081/276221 (https://www.cloudflare.com/learning/network-layer/what-is-mtu/)
+grep -qxF 'sudo ifconfig wlp113s0 mtu 1400' ~/.profile || echo '\n# update mtu to 1400 to make sure that requests still work fast on old infra networks\nsudo ifconfig wlp113s0 mtu 1400' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980

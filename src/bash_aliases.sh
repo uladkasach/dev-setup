@@ -24,6 +24,10 @@ alias use.ahbode.prod='export AWS_PROFILE=ahbode.prod'
 alias use.whodis.prod='export AWS_PROFILE=whodis.prod'
 alias use.alistokrad.prod='export AWS_PROFILE=alistokrad.prod'
 
+# vpn
+alias use.ahbode.dev.vpn="sudo openvpn --config ~/.vpn/ahbode.dev.vpn.main.connection.ovpn"
+alias use.ahbode.prod.vpn="sudo openvpn --config ~/.vpn/ahbode.prod.vpn.main.connection.ovpn"
+
 # github token
 alias use.github.admin='export GITHUB_TOKEN=$(op get item github.admin.pat | jq -r .details.password)'
 
