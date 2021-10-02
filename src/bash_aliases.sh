@@ -34,6 +34,9 @@ alias use.github.admin='export GITHUB_TOKEN=$(op get item github.admin.pat | jq 
 # terraform caching, for when on slow internet
 alias use.terraform.caching='mkdir -p $HOME/.terraform.d/plugin-cache && export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"' # https://www.terraform.io/docs/cli/config/config-file.html#provider-plugin-cache
 
+# networking utilities
+alias use.mtu.1400='sudo ifconfig wlp113s0 mtu 1400' # for when you're on older infra networks; https://serverfault.com/a/670081/276221; https://www.cloudflare.com/learning/network-layer/what-is-mtu/
+
 # make it easy to manually update the keymappings, in case they drop off for some reason
 alias kmap.caps2ctrl='setxkbmap -option "'"caps:ctrl_modifier"'"'
 alias kmap.caps2esc='xcape -e "'"Caps_Lock=Escape"'" &'
@@ -51,8 +54,8 @@ alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlay
 alias brightness='xrandr --output eDP-1 --brightness'
 
 # make it easy to restart utils
-alias restart.bluetooth='sudo systemctl restart bluetooth'
-alias restart.wifi='sudo systemctl restart NetworkManager.service'
+alias restart.bluetooth='systemctl restart bluetooth'
+alias restart.wifi='systemctl restart NetworkManager.service'
 
 # make it easy to update bashalias
 alias devenv.sync.bashalias='cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases'
