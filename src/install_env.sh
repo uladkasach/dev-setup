@@ -91,7 +91,8 @@ git config --global alias.shove 'push origin HEAD --force-with-lease' # e.g., gi
 #######################
 ## install bash alias dependencies
 #######################
-sudo apt install xclip -y # required for pbpaste, pbcopy
+sudo apt install -y xclip # required for pbpaste, pbcopy
+sudo apt install -y jq  # required for manipulating json in terminal
 
 #########################
 ## install neovim
