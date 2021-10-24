@@ -54,7 +54,7 @@ alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlay
 alias brightness='xrandr --output eDP-1 --brightness'
 
 # make it easy to restart utils
-alias restart.bluetooth='systemctl restart bluetooth'
+alias restart.bluetooth='bluetoothctl power on && systemctl restart bluetooth'
 alias restart.wifi='systemctl restart NetworkManager.service'
 
 # make it easy to update bashalias

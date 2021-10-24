@@ -260,3 +260,14 @@ sudo snap install spotify && ln -s /var/lib/snapd/desktop/applications/spotify_s
 sudo snap install slack --classic && ln -s /var/lib/snapd/desktop/applications/slack_slack.desktop .local/share/applications
 sudo snap install datagrip --classic && ln -s /var/lib/snapd/desktop/applications/datagrip_datagrip.desktop .local/share/applications
 
+######################
+## install proton vpn
+## https://protonvpn.com/support/linux-ubuntu-vpn-setup/
+######################
+wget https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb -P ~/Downloads # check if theres a newer version of the repo install, at the link above;
+sudo dpkg -i ~/Downloads/protonvpn-stable-release_1.0.1-1_all.deb;
+sudo apt update;
+sudo apt-get install -y protonvpn;
+sudo apt install -y gnome-shell-extension-appindicator gir1.2-appindicator3-0.1; # system tray icon
+
+
