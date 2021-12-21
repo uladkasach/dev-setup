@@ -258,7 +258,7 @@ gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false # ht
 sudo apt install -y snapd
 sudo snap install spotify && ln -s /var/lib/snapd/desktop/applications/spotify_spotify.desktop .local/share/applications # note: if the resolution is to small, add `--force-device-scale-factor=2` to the "exec" part of the snap application definition in the file we symlinked
 sudo snap install slack --classic && ln -s /var/lib/snapd/desktop/applications/slack_slack.desktop .local/share/applications
-sudo snap install datagrip --classic && ln -s /var/lib/snapd/desktop/applications/datagrip_datagrip.desktop .local/share/applications
+sudo snap install datagrip --classic && ln -s /var/lib/snapd/desktop/applications/datagrip_datagrip.desktop .local/share/applications # note: if an update produces a bad version, you can rollback to a known good one. e.g., `sudo snap refresh datagrip --channel=2021.2/stable --classic`; you can find all versions at `https://snapcraft.io/datagrip`
 
 ######################
 ## install proton vpn
