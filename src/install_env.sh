@@ -52,6 +52,19 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier'
 grep -qxF 'xcape -e "'"Caps_Lock=Escape"'"' ~/.profile || echo '\n# map caps key to escape if pressed on its own\nxcape -e "'"Caps_Lock=Escape"'"' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
+## add `alt` + `h/j/k/l` => left/up/down/right - per vim bindings
+## - https://shellhell.wordpress.com/2012/01/31/hello-world/
+## - https://askubuntu.com/questions/1025765/how-to-map-alt-hjkl-keys-to-arrow-keys
+## - https://askubuntu.com/questions/465924/how-to-map-modifier-hjkl-to-arrow-key-functionality
+#########################
+xmodmap -e "keycode 64 = Mode_switch" # Alt_l
+xmodmap -e "keycode 43 = h H Left H" # h
+xmodmap -e "keycode 44 = j J Down J" # j
+xmodmap -e "keycode 45 = k K Up K" # k
+xmodmap -e "keycode 46 = l L Right L" # l
+grep -qxF 'xmodmap -e "keycode 64 = Mode_switch" # Alt_l' ~/.profile || echo '\n# map alt+h/j/k/l to left/down/up/right \n' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
+
+#########################
 ## make sure your pop-os laptop always starts in battery saver mode
 #########################
 grep -qxF 'system76-power profile battery' ~/.profile || echo '\n# start in battery saver\nsystem76-power profile battery' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
