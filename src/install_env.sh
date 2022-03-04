@@ -56,8 +56,10 @@ grep -qxF 'xcape -e "'"Caps_Lock=Escape"'"' ~/.profile || echo '\n# map caps key
 ## - https://shellhell.wordpress.com/2012/01/31/hello-world/
 ## - https://askubuntu.com/questions/1025765/how-to-map-alt-hjkl-keys-to-arrow-keys
 ## - https://askubuntu.com/questions/465924/how-to-map-modifier-hjkl-to-arrow-key-functionality
+## - note: unfortunately alt_l + alt_r + h -> do not send a keystroke on ubuntu + dell 😐 (so we use alt_l + ctrl_r + h instead)
 #########################
 xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"
+xmodmap -e "keycode 105 = Mode_switch" # set Ctrl_R as the "Mode_switch" as well, since Alt_L + Alt_R + `h` does not emit anything on ubuntu21.04+dell model, for some reason # TODO: figure out why and resolve. ideally we would only need alt_r
 xmodmap -e "keycode 43 = h H Left H" # h
 xmodmap -e "keycode 44 = j J Down J" # j
 xmodmap -e "keycode 45 = k K Up K" # k
