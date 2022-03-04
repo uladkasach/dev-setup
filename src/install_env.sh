@@ -57,12 +57,12 @@ grep -qxF 'xcape -e "'"Caps_Lock=Escape"'"' ~/.profile || echo '\n# map caps key
 ## - https://askubuntu.com/questions/1025765/how-to-map-alt-hjkl-keys-to-arrow-keys
 ## - https://askubuntu.com/questions/465924/how-to-map-modifier-hjkl-to-arrow-key-functionality
 #########################
-xmodmap -e "keycode 64 = Mode_switch" # Alt_l
+xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"
 xmodmap -e "keycode 43 = h H Left H" # h
 xmodmap -e "keycode 44 = j J Down J" # j
 xmodmap -e "keycode 45 = k K Up K" # k
 xmodmap -e "keycode 46 = l L Right L" # l
-grep -qxF 'xmodmap -e "keycode 64 = Mode_switch" # Alt_l' ~/.profile || echo '\n# map alt+h/j/k/l to left/down/up/right \n' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
+grep -qxF 'xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"' ~/.profile || echo '\n# map alt+h/j/k/l to left/down/up/right \nxmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"\nxmodmap -e "keycode 43 = h H Left H" # h\nxmodmap -e "keycode 44 = j J Down J" # j\nxmodmap -e "keycode 45 = k K Up K" # k\nxmodmap -e "keycode 46 = l L Right L" # l\n' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
 ## make sure your pop-os laptop always starts in battery saver mode
