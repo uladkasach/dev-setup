@@ -112,12 +112,6 @@ git config --global alias.shove 'push origin HEAD --force-with-lease' # e.g., gi
 sudo apt install -y xclip # required for pbpaste, pbcopy
 sudo apt install -y jq  # required for manipulating json in terminal
 
-#########################
-## install neovim
-#########################
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
 
 #########################
 ## install codium

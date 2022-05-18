@@ -8,6 +8,17 @@
 `^` = go to beginning of non-blank of line
 `%` = go to corresponding item (e.g. from an open brace to its matching closing brace)
 
+- jump list
+  - `:jump` to view jumplist
+  - `C+O` to jump back
+  - `C+I` to jump forward
+
+`gd` - go to definition (coc.vim)
+`gy` - go to type definition (coc.vim)
+`gi` - go to implementation (coc.vim)
+`gr` - go to references (coc.vim)
+
+
 # actions
 
 `:%s/find/replace/g` = find and replace based on regexp + customizable line selectors
@@ -23,6 +34,14 @@
   - power examples
     - `ysiw{` = add brackets around word
     - `ysiwt` = add a tag around word
+
+# registers
+> "* - selection register (middle-button paste)
+> "+ - clipboard register (probably also accessible with ctrl-shift-v via the terminal)
+> "" - vim's default (unnamed) yank/put/change/delete/substitute register.
+> "_ - blackhole register (colloquially)
+
+- https://stackoverflow.com/a/2471282/3068233
 
 # refs
 - https://vim.fandom.com/wiki/Moving_around
