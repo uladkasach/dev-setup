@@ -24,6 +24,9 @@ alias use.ahbode.prod='export AWS_PROFILE=ahbode.prod'
 alias use.whodis.prod='export AWS_PROFILE=whodis.prod'
 alias use.alistokrad.prod='export AWS_PROFILE=alistokrad.prod'
 
+# fastly credentials
+alias use.ahbode.fastly='export FASTLY_API_KEY=$(op get item fastly.ahbode.apikey | jq -r .details.password)'
+
 # vpn
 alias use.ahbode.dev.vpn="sudo openvpn --config ~/.vpn/ahbode.dev.vpn.main.connection.ovpn"
 alias use.ahbode.prod.vpn="sudo openvpn --config ~/.vpn/ahbode.prod.vpn.main.connection.ovpn"
