@@ -283,4 +283,11 @@ sudo apt update;
 sudo apt-get install -y protonvpn;
 sudo apt install -y gnome-shell-extension-appindicator gir1.2-appindicator3-0.1; # system tray icon
 
-
+######################
+## install app image launcher
+## https://github.com/TheAssassin/AppImageLauncher
+######################
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
