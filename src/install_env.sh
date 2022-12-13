@@ -234,10 +234,10 @@ ngrok help
 #######################
 ## install gnome extensions: https://support.system76.com/articles/customize-gnome
 #######################
-sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar; note: will need to restart before it shows
+# sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar; note: will need to restart before it shows
+sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0 gnome-system-monitor && echo 'install the system monitor extension through website for now...' && browser  https://extensions.gnome.org/extension/3010/system-monitor-next/ # https://github.com/mgalgs/gnome-shell-system-monitor-applet ; # TODO: switch to not using `-next` version when its supported again
+sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' && browser https://extensions.gnome.org/extension/836/internet-radio/ # https://github.com/hslbck/gnome-shell-extension-radio
 sudo apt install -y gnome-shell-pomodoro # show pomodoro extensinon
-sudo apt install -y gnome-shell-extension-remove-dropdown-arrows # until gnome 40, remove the ugly arrows on app indicators: https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows
-sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' && browser https://github.com/hslbck/gnome-shell-extension-radio
 logout # login logout of DE
 # then search "extensions" in settings and turn them on manually
 
@@ -264,14 +264,18 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true #
 #######################
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false # https://itsfoss.com/automatic-brightness-ubuntu/
 
-#######################
-## install snap and some clients
-## - note, we must symlink the applications so that they're picked up by the launcher since this is not automatically done: https://askubuntu.com/a/1051397
-#######################
-sudo apt install -y snapd
-sudo snap install spotify && ln -s /var/lib/snapd/desktop/applications/spotify_spotify.desktop .local/share/applications # note: if the resolution is to small, add `--force-device-scale-factor=2` to the "exec" part of the snap application definition in the file we symlinked
-sudo snap install slack --classic && ln -s /var/lib/snapd/desktop/applications/slack_slack.desktop .local/share/applications
-sudo snap install datagrip --classic && ln -s /var/lib/snapd/desktop/applications/datagrip_datagrip.desktop .local/share/applications # note: if an update produces a bad version, you can rollback to a known good one. e.g., `sudo snap refresh datagrip --channel=2021.2/stable --classic`; you can find all versions at `https://snapcraft.io/datagrip`
+######################
+## install flatpak; https://flatpak.org/setup/Pop!_OS
+######################
+sudo apt install flatpak
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+######################
+## install client apps
+######################
+flatpak install flathub com.spotify.Client
+flatpak install flathub com.jetbrains.DataGrip
+flatpak install flathub com.slack.Slack
 
 ######################
 ## install proton vpn

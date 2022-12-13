@@ -34,6 +34,19 @@
   - power examples
     - `ysiw{` = add brackets around word
     - `ysiwt` = add a tag around word
+`viwp` = paste contents of a register over a visually selected 'in-word'
+  - refs
+    - https://stackoverflow.com/a/19861367/3068233
+  - power examples
+    - `vsiw"0p` to send the overwritten value into a different register
+`ctrl-r 0` = paste the contents of the register `0`
+  - usage
+    - especially helpful if you want to `ciw` and paste a value from a register
+  - refs
+    - https://stackoverflow.com/a/51048624/3068233
+    - https://medium.com/usevim/vim-101-ctrl-r-c9b9b6812f4c
+  - power examples
+    - `ctrl-r 10*20`, for letting vim do calculations for you
 
 # registers
 > "* - selection register (middle-button paste)
