@@ -264,6 +264,18 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true #
 #######################
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false # https://itsfoss.com/automatic-brightness-ubuntu/
 
+#######################
+## bind the screen capture shortcuts
+## - "open print screen ui" to ctrl-shift-alt-p
+## - "open record screen ui" to ctrl-shift-alt-r
+##
+## ref
+## - get current value `gsettings get org.gnome.shell.keybindings show-screenshot-ui`
+## - list all values in schema `gsettings list-recursively org.gnome.shell.keybindings`
+#######################
+gsettings set org.gnome.shell.keybindings show-screenshot-ui "['Print', '<Primary><Shift><Alt>P']"
+gsettings set org.gnome.shell.keybindings show-screen-recording-ui "['<Ctrl><Shift><Alt>R']"
+
 ######################
 ## install flatpak; https://flatpak.org/setup/Pop!_OS
 ######################
@@ -295,3 +307,5 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:appimagelauncher-team/stable
 sudo apt update
 sudo apt install appimagelauncher
+
+
