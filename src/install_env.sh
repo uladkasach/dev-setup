@@ -215,12 +215,14 @@ sudo apt install openvpn network-manager-openvpn-gnome -y
 #  sudo openvpn --config ~/.vpn/main.connection.ovpn
 
 ########################
-## add github cli tool
+## add github cli tool; https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
 #######################
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 \
-  && sudo apt-add-repository https://cli.github.com/packages \
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
   && sudo apt update \
-  && sudo apt install -y gh
+  && sudo apt install gh -y
 
 #######################
 ## install ngrok
@@ -235,7 +237,7 @@ ngrok help
 ## install gnome extensions: https://support.system76.com/articles/customize-gnome
 #######################
 # sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar; note: will need to restart before it shows
-sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0 gnome-system-monitor && echo 'install the system monitor extension through website for now...' && browser  https://extensions.gnome.org/extension/3010/system-monitor-next/ # https://github.com/mgalgs/gnome-shell-system-monitor-applet ; # TODO: switch to not using `-next` version when its supported again
+sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0 gnome-system-monitor && echo 'install the system monitor extension through website for now...' && browser https://extensions.gnome.org/extension/3010/system-monitor-next/ # https://github.com/mgalgs/gnome-shell-system-monitor-applet ; # TODO: switch to not using `-next` version when its supported again
 sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' && browser https://extensions.gnome.org/extension/836/internet-radio/ # https://github.com/hslbck/gnome-shell-extension-radio
 sudo apt install -y gnome-shell-pomodoro # show pomodoro extensinon
 logout # login logout of DE
