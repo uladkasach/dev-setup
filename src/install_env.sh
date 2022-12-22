@@ -57,18 +57,41 @@ grep -qxF 'xcape -e "'"Control_L=Escape"'"' ~/.profile || echo '\n# map caps key
 ## - https://shellhell.wordpress.com/2012/01/31/hello-world/
 ## - https://askubuntu.com/questions/1025765/how-to-map-alt-hjkl-keys-to-arrow-keys
 ## - https://askubuntu.com/questions/465924/how-to-map-modifier-hjkl-to-arrow-key-functionality
+## - https://unix.stackexchange.com/questions/49650/how-to-get-keycodes-for-xmodmap
+## - https://askubuntu.com/questions/54157/how-do-i-set-xmodmap-on-login -> https://askubuntu.com/a/211461/357970
+## - https://stackoverflow.com/questions/2500436/how-does-cat-eof-work-in-bash
+## - https://wiki.archlinux.org/title/xmodmap
 ##
 ## note:
 ## - unfortunately alt_l + alt_r + h -> do not send a keystroke on ubuntu + dell 😐 (so we use alt_l + ctrl_r + h instead)
 ## - unfortunately ~/.profile does not pick up these changes on startup _and_ whenever system sleeps / bluetooth reconnects / other, the xmodmap gets wiped, so call the `use.keymap.vimnav` bash alias for now # TODO: make these mappings persist on session starts
 #########################
-xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"
-xmodmap -e "keycode 105 = Mode_switch" # set Ctrl_R as the "Mode_switch" as well, since Alt_L + Alt_R + `h` does not emit anything on ubuntu21.04+dell model, for some reason # TODO: figure out why and resolve. ideally we would only need alt_r
-xmodmap -e "keycode 43 = h H Left H" # h
-xmodmap -e "keycode 44 = j J Down J" # j
-xmodmap -e "keycode 45 = k K Up K" # k
-xmodmap -e "keycode 46 = l L Right L" # l
-grep -qxF 'xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"' ~/.profile || echo '\n# map alt+h/j/k/l to left/down/up/right \nxmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"\nxmodmap -e "keycode 43 = h H Left H" # h\nxmodmap -e "keycode 44 = j J Down J" # j\nxmodmap -e "keycode 45 = k K Up K" # k\nxmodmap -e "keycode 46 = l L Right L" # l\n' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
+# to define the contents of the XMODMAP, run the xmodmap commands in your terminal and then ask xmodmap to create the output file for current config; pick out the ones you want
+# in our case:
+# ```sh
+# xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"
+# xmodmap -e "keycode 134 = Mode_switch" # set Super_R as the "Mode_switch" as well, to support mac keyboard which has super key in place of alt key to the right of keyboard
+# xmodmap -e "keycode 105 = Mode_switch" # set Ctrl_R as the "Mode_switch" as well, since Alt_L + Alt_R + `h` does not emit anything on ubuntu21.04+dell model, for some reason # TODO: figure out why and resolve. ideally we would only need alt_r
+# xmodmap -e "keycode 43 = h H Left H" # h
+# xmodmap -e "keycode 44 = j J Down J" # j
+# xmodmap -e "keycode 45 = k K Up K" # k
+# xmodmap -e "keycode 46 = l L Right L" # l
+# xmodmap -pke
+# ```
+VIMNAV_XMODMAP_CONTENTS='
+keycode 108 = Mode_switch NoSymbol Mode_switch
+keycode 134 = Mode_switch NoSymbol Mode_switch
+keycode 105 = Mode_switch NoSymbol Mode_switch
+keycode  43 = h H Left H
+keycode  44 = j J Down J
+keycode  45 = k K Up K
+keycode  46 = l L Right L
+'
+touch ~/.xinitrc # find or create this file in home dir
+chmod +x ~/.xinitrc
+grep -qxF 'xmodmap ~/.xmodmap' ~/.xinitrc || echo 'xmodmap ~/.xmodmap' >> ~/.xinitrc # add this line to the file if it doesn't already exist
+touch ~/.xmodmap # find or create this file in homedir
+grep -qxF 'keycode 108 = Mode_switch NoSymbol Mode_switch' ~/.xmodmap || echo $VIMNAV_XMODMAP_CONTENTS >> ~/.xmodmap # add the contents if they dont already exist
 
 #########################
 ## make sure your pop-os laptop always starts in battery saver mode

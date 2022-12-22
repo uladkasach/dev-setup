@@ -45,15 +45,7 @@ alias use.terraform.caching='mkdir -p $HOME/.terraform.d/plugin-cache && export 
 alias use.mtu.1400='sudo ifconfig wlp113s0 mtu 1400' # for when you're on older infra networks; https://serverfault.com/a/670081/276221; https://www.cloudflare.com/learning/network-layer/what-is-mtu/
 
 # make it easy to manually update the keymappings, in case they drop off for some reason
-alias use.keymap.vimnav='
-xmodmap -e "keycode 108 = Mode_switch" && # set Alt_R as the "Mode_switch"
-xmodmap -e "keycode 105 = Mode_switch" && # set Ctrl_R as the "Mode_switch" as well, since Alt_L + Alt_R + `h` does not emit anything on ubuntu21.04+dell model, for some reason # TODO: figure out why and resolve. ideally we would only need alt_r
-xmodmap -e "keycode 43 = h H Left H" && # h
-xmodmap -e "keycode 44 = j J Down J" && # j
-xmodmap -e "keycode 45 = k K Up K" && # k
-xmodmap -e "keycode 46 = l L Right L" && # l
-echo "🔥"
-';
+alias use.keymap.vimnav='xmodmap ~/.xmodmap && echo "🔥"';
 
 # make signing into onepass easier
 alias op.signin='eval $(op signin my)'
