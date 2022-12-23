@@ -54,44 +54,42 @@ grep -qxF 'xcape -e "'"Control_L=Escape"'"' ~/.profile || echo '\n# map caps key
 
 #########################
 ## add `alt` + `h/j/k/l` => left/up/down/right - per vim bindings
-## - https://shellhell.wordpress.com/2012/01/31/hello-world/
 ## - https://askubuntu.com/questions/1025765/how-to-map-alt-hjkl-keys-to-arrow-keys
-## - https://askubuntu.com/questions/465924/how-to-map-modifier-hjkl-to-arrow-key-functionality
-## - https://unix.stackexchange.com/questions/49650/how-to-get-keycodes-for-xmodmap
-## - https://askubuntu.com/questions/54157/how-do-i-set-xmodmap-on-login -> https://askubuntu.com/a/211461/357970
-## - https://stackoverflow.com/questions/2500436/how-does-cat-eof-work-in-bash
-## - https://wiki.archlinux.org/title/xmodmap
+## - https://unix.stackexchange.com/questions/65507/use-setxkbmap-to-swap-the-left-shift-and-left-control?noredirect=1&lq=1
+## - https://wiki.archlinux.org/title/X_keyboard_extension
+## - https://stackoverflow.com/questions/45021978/create-a-custom-setxkbmap-option
+## - https://askubuntu.com/questions/876005/what-file-is-the-setxkbmap-option-rules-meant-to-take-and-how-can-i-add-keyboa
 ##
 ## note:
-## - unfortunately alt_l + alt_r + h -> do not send a keystroke on ubuntu + dell 😐 (so we use alt_l + ctrl_r + h instead)
 ## - unfortunately ~/.profile does not pick up these changes on startup _and_ whenever system sleeps / bluetooth reconnects / other, the xmodmap gets wiped, so call the `use.keymap.vimnav` bash alias for now # TODO: make these mappings persist on session starts
 #########################
-# to define the contents of the XMODMAP, run the xmodmap commands in your terminal and then ask xmodmap to create the output file for current config; pick out the ones you want
-# in our case:
-# ```sh
-# xmodmap -e "keycode 108 = Mode_switch" # set Alt_R as the "Mode_switch"
-# xmodmap -e "keycode 134 = Mode_switch" # set Super_R as the "Mode_switch" as well, to support mac keyboard which has super key in place of alt key to the right of keyboard
-# xmodmap -e "keycode 105 = Mode_switch" # set Ctrl_R as the "Mode_switch" as well, since Alt_L + Alt_R + `h` does not emit anything on ubuntu21.04+dell model, for some reason # TODO: figure out why and resolve. ideally we would only need alt_r
-# xmodmap -e "keycode 43 = h H Left H" # h
-# xmodmap -e "keycode 44 = j J Down J" # j
-# xmodmap -e "keycode 45 = k K Up K" # k
-# xmodmap -e "keycode 46 = l L Right L" # l
-# xmodmap -pke
-# ```
-VIMNAV_XMODMAP_CONTENTS='
-keycode 108 = Mode_switch NoSymbol Mode_switch
-keycode 134 = Mode_switch NoSymbol Mode_switch
-keycode 105 = Mode_switch NoSymbol Mode_switch
-keycode  43 = h H Left H
-keycode  44 = j J Down J
-keycode  45 = k K Up K
-keycode  46 = l L Right L
-'
-touch ~/.xinitrc # find or create this file in home dir
-chmod +x ~/.xinitrc
-grep -qxF 'xmodmap ~/.xmodmap' ~/.xinitrc || echo 'xmodmap ~/.xmodmap' >> ~/.xinitrc # add this line to the file if it doesn't already exist
-touch ~/.xmodmap # find or create this file in homedir
-grep -qxF 'keycode 108 = Mode_switch NoSymbol Mode_switch' ~/.xmodmap || echo $VIMNAV_XMODMAP_CONTENTS >> ~/.xmodmap # add the contents if they dont already exist
+XKB_SHARED_DIR=/usr/share/X11/xkb
+XKB_VIMLIKE_ARROWS_OPTION_FILE=$XKB_SHARED_DIR/symbols/vimlike
+sudo touch $XKB_VIMLIKE_ARROWS_OPTION_FILE
+XKB_VIMLIKE_ARROWS_OPTION_DEFINITION='
+partial alphanumeric_keys modifier_keys
+xkb_symbols "arrows" {
+  key <AC06> { [ h, H,  Left ] };
+  key <AC07> { [ j, J,  Down ] };
+  key <AC08> { [ k, K,    Up ] };
+  key <AC09> { [ l, L, Right ] };
+  key <RALT> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+  key <RWIN> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+  modifier_map Mod5 { ISO_Level3_Shift };
+};
+';
+grep -qxF 'xkb_symbols "arrows"' $XKB_VIMLIKE_ARROWS_OPTION_FILE || echo $XKB_VIMLIKE_ARROWS_OPTION_DEFINITION | sudo tee $XKB_VIMLIKE_ARROWS_OPTION_FILE # https://askubuntu.com/questions/103643/cannot-echo-hello-x-txt-even-with-sudo
+XKB_OPTIONS_REGISTRY_FILE=$XKB_SHARED_DIR/rules/evdev # can be identified by running `setxkbmap -query -verbose 10` and seeing where rules are loaded from
+XKB_OPTION_VIMLIKE_ARROWS_REGISTRATION='
+// vimlike arrow registration, added during dev-env-setup
+! option        =       symbols
+  vimlike:arrows = +vimlike(arrows)
+';
+sudo cp $XKB_OPTIONS_REGISTRY_FILE $XKB_OPTIONS_REGISTRY_FILE.bak
+grep -qxF '  vimlike:arrows = +vimlike(arrows)' $XKB_OPTIONS_REGISTRY_FILE || echo $XKB_OPTION_VIMLIKE_ARROWS_REGISTRATION | sudo tee -a $XKB_OPTIONS_REGISTRY_FILE # https://askubuntu.com/questions/103643/cannot-echo-hello-x-txt-even-with-sudo
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'vimlike:arrows']"; # !: we _append_ this option to the ctrl_modifier option from prior steps
+gsettings get org.gnome.desktop.input-sources xkb-options
+
 
 #########################
 ## make sure your pop-os laptop always starts in battery saver mode

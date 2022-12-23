@@ -9,9 +9,9 @@ alias pbpaste='xclip -selection clipboard -o'
 alias getuuid='uuidgen | tr -d "'"\n"'" | pbcopy && echo "'"  ✔ uuid was copied"'"'
 
 # quick test alias
-alias ju='npx jest -c jest.unit.config.ts || npx jest -c jest.unit.config.js'
-alias ji='npx jest -c jest.integration.config.ts || npx jest -c jest.integration.config.js'
-alias ja='npx jest -c jest.acceptance.config.ts || npx jest -c jest.acceptance.config.js'
+alias ju='npx jest -c jest.unit.config.ts'
+alias ji='npx jest -c jest.integration.config.ts'
+alias ja='npx jest -c jest.acceptance.config.ts'
 alias jal='LOCALLY=true ja'
 
 # quick terraform alias
@@ -45,7 +45,7 @@ alias use.terraform.caching='mkdir -p $HOME/.terraform.d/plugin-cache && export 
 alias use.mtu.1400='sudo ifconfig wlp113s0 mtu 1400' # for when you're on older infra networks; https://serverfault.com/a/670081/276221; https://www.cloudflare.com/learning/network-layer/what-is-mtu/
 
 # make it easy to manually update the keymappings, in case they drop off for some reason
-alias use.keymap.vimnav='xmodmap ~/.xmodmap && echo "🔥"';
+alias use.keymap.altswap='setxkbmap -option altwin:swap_lalt_lwin' # https://unix.stackexchange.com/a/367016/77522
 
 # make signing into onepass easier
 alias op.signin='eval $(op signin my)'
