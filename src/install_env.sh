@@ -65,16 +65,17 @@ grep -qxF 'xcape -e "'"Control_L=Escape"'"' ~/.profile || echo '\n# map caps key
 #########################
 XKB_SHARED_DIR=/usr/share/X11/xkb
 XKB_VIMLIKE_ARROWS_OPTION_FILE=$XKB_SHARED_DIR/symbols/vimlike
+# sudo vim $XKB_VIMLIKE_ARROWS_OPTION_FILE
 sudo touch $XKB_VIMLIKE_ARROWS_OPTION_FILE
 XKB_VIMLIKE_ARROWS_OPTION_DEFINITION='
 partial alphanumeric_keys modifier_keys
 xkb_symbols "arrows" {
-  key <AC06> { [ h, H,  Left ] };
-  key <AC07> { [ j, J,  Down ] };
-  key <AC08> { [ k, K,    Up ] };
-  key <AC09> { [ l, L, Right ] };
-  key <RALT> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
-  key <RWIN> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+  key <AC06> { [ h, H,  Left, Left ] };
+  key <AC07> { [ j, J,  Down, Down ] };
+  key <AC08> { [ k, K,    Up, Up ] };
+  key <AC09> { [ l, L, Right, Right ] };
+  key <RALT> { [ ISO_Level3_Shift, ISO_Level3_Shift, ISO_Level3_Shift, ISO_Level3_Shift ] };
+  key <RWIN> { [ ISO_Level3_Shift, ISO_Level3_Shift, ISO_Level3_Shift, ISO_Level3_Shift ] };
   modifier_map Mod5 { ISO_Level3_Shift };
 };
 ';
