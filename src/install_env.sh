@@ -5,7 +5,8 @@ sudo apt install vim -y # note: ~/.zshrc already defines that this is defaulta
 
 #########################
 ## install chrome
-#########################
+######################### 
+rm ~/Downloads/google-chrome-stable_current_amd64.deb;
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads;
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb;
 google-chrome; # open it; set it as your defualt
