@@ -1,0 +1,191 @@
+{
+  // "workbench.colorCustomizations": {
+  //   "activityBar.background": "#e4e3e3",
+  //   "activityBar.foreground": "#636363",
+  //   "gitlens.gutterBackgroundColor": "#ffffff"
+  // },
+  // usability basics
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "workbench.tree.indent": 20,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true, // it gets these painfully wrong too often :/
+  "explorer.confirmDragAndDrop": false,
+  "emmet.excludeLanguages": [
+    "typescriptreact"
+  ],
+  // theme customizer
+  "editor.tokenColorCustomizations": {
+    "[Brackets Light Pro]": {
+      "comments": "#a5a5a5"
+    }
+  },
+  "workbench.colorCustomizations": {
+    "[Blueberry dark theme]": {
+      "editor.lineHighlightBackground": "#00000030",
+      "editorLineNumber.foreground": "#999999", // otherwise, gutter is not visible
+      "terminal.ansiGreen": "#27E8A7", // default is too yellow
+    }
+  },
+  // formatting
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+  "prettier.requireConfig": true,
+  "sync.gist": "f198f99713aeb52a4dcac0dfb8d73cd0",
+  // gitblame
+  "gitblame.statusBarMessageFormat": "${author.name} ( ${time.ago} )",
+  "git.autofetch": true,
+  // misc
+  "emulator.emulatorPath": "~/Android/Sdk/emulator",
+  // spelling
+  "cSpell.userWords": [
+    "ahbode",
+    "Authed",
+    "cacheable",
+    "Clientside",
+    "Comms",
+    "craigslist",
+    "declapract",
+    "Declastruct",
+    "deduped",
+    "Distractionless",
+    "ehmpathy",
+    "emptivly",
+    "freddies",
+    "gamification",
+    "Grokable",
+    "hasha",
+    "idempotency",
+    "idempotently",
+    "lawnfather",
+    "SIGNUP",
+    "steves",
+    "Underlight",
+    "upsert",
+    "upserted",
+    "whodis"
+  ],
+  "gitlens.codeLens.enabled": false,
+  "gitlens.views.repositories.location": "scm",
+  "gitlens.views.fileHistory.location": "scm",
+  "gitlens.views.lineHistory.location": "scm",
+  "gitlens.views.compare.location": "scm",
+  "gitlens.views.search.location": "scm",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.blame.format": "${author}, ${message|40?} ${agoOrDate|14-}",
+  "gitlens.hovers.avatars": false,
+  "gitlens.views.fileHistory.avatars": false,
+  "gitlens.views.lineHistory.avatars": false,
+  "gitlens.views.search.avatars": false,
+  "gitlens.views.compare.avatars": false,
+  "gitlens.blame.avatars": false,
+  "gitlens.views.repositories.avatars": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
+  "markdown.extension.toc.updateOnSave": false,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-a>"
+      ], // shortcut for select all
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G"
+      ]
+    },
+  ],
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-a>": false,
+    "<C-z>": false,
+    "<C-y>": false,
+    "<C-w>": false,
+    "<C-f>": false,
+    "<S-Tab>": false
+  },
+  "macros": {
+    "saveAndExitVimInsertMode": [
+      "workbench.action.files.save",
+      "extension.vim_escape", // for vscodevim
+      "vscode-neovim.escape" // for vscode-neovim
+    ],
+    "vimEscape": [
+      "extension.vim_escape", // for vscodevim
+      "vscode-neovim.escape" // for vscode-neovim
+    ]
+  },
+  "editor.lineNumbers": "relative",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "eslint.alwaysShowStatus": true,
+  "cSpell.enableFiletypes": [
+    "sql"
+  ],
+  "sqltools.formatLanguages": [],
+  "errorLens.gutterIconSize": "100%",
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Blueberry dark theme",
+  "sqltools.connections": [],
+  "sqltools.highlightQuery": false,
+  "sqltools.showStatusbar": false,
+  "terraform.languageServer": {
+    "external": true,
+    "args": [
+      "serve"
+    ]
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // no more snippets
+  "editor.snippetSuggestions": "none",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.useCtrlKeysForInsertMode": false,
+  "vscode-neovim.useCtrlKeysForNormalMode": false,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": false
+  },
+  "workbench.editor.showTabs": false
+}

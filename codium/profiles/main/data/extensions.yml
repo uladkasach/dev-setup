@@ -1,0 +1,68 @@
+disabled:
+  - id: asvetliakov.vscode-neovim
+    uuid: caf8995c-5426-4bf7-9d01-f7968ebd49bb
+enabled:
+  - id: aaron-bond.better-comments
+    uuid: 7a0110bb-231a-4598-aa1b-0769ea46d28b
+  - id: adam-watters.vscode-color-pick
+    uuid: f1910b5d-212e-46a3-ac67-0e20e3f70ad9
+  - id: bierner.emojisense
+    uuid: 081cd2e9-bc51-4ea3-977e-544bed2e33a8
+  - id: bierner.markdown-mermaid
+    uuid: f8d0ffc4-66bb-4a9c-8149-ef8f043691a1
+  - id: chrmarti.regex
+    uuid: 7ed7bccd-f358-4c6f-88c0-1296185abaa1
+  - id: dbaeumer.vscode-eslint
+    uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
+  - id: DiemasMichiels.emulate
+    uuid: d14e9a1d-64ce-4c73-8e17-619bc4b8a9c1
+  - id: eamodio.gitlens
+    uuid: 4de763bd-505d-4978-9575-2b7696ecf94e
+  - id: esbenp.prettier-vscode
+    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+  - id: geddski.macros
+    uuid: ee577500-fad7-4a2b-b19a-bf7ef89f766c
+  - id: GitHub.copilot
+    uuid: 23c4aeee-f844-43cd-b53e-1113e483f1a6
+  - id: hashicorp.terraform
+    uuid: 4a23294b-fd16-4c51-9759-da9936474cf8
+  - id: jasonnutter.search-node-modules
+    uuid: ee108066-df8b-43ae-9a83-e6c11400a759
+  - id: mike-co.import-sorter
+    uuid: 1cbadbba-0bd6-46fa-a309-76704bf66217
+  - id: mrmlnc.vscode-duplicate
+    uuid: 03944bdc-9bcb-4ac2-b9b3-fdb050dd43e4
+  - id: ms-vscode.vscode-typescript-tslint-plugin
+    uuid: 90a37ca1-92a2-488a-b196-7a8c0b0127ea
+  - id: naumovs.color-highlight
+    uuid: 121396ad-85a1-45ec-9fd1-d95028a847f5
+  - id: peymanslh.blueberry-dark-theme
+    uuid: 572868b0-4ce7-4638-b99f-4d3bb61fc898
+  - id: phobal.vscode-collapse-node-modules
+    uuid: 92c29c11-fed4-4cea-9726-6492fcaa806d
+  - id: phplasma.csv-to-table
+    uuid: 276fcd36-48fc-4505-bccb-24ec72a7f051
+  - id: shubham-saudolla.lilac
+    uuid: 1bfca39f-30a9-45e3-8631-027297c85b5c
+  - id: sleistner.vscode-fileutils
+    uuid: d637104e-1fd7-4063-98fc-8afe46012c9b
+  - id: streetsidesoftware.code-spell-checker
+    uuid: f6dbd813-b0a0-42c1-90ea-10dde9d925a7
+  - id: usernamehw.errorlens
+    uuid: 9d8c32ab-354c-4daf-a9bf-20b633734435
+  - id: VisualStudioExptTeam.intellicode-api-usage-examples
+    uuid: 9fa2a00e-3bfa-4c2a-abc4-a865bb2b5cf3
+  - id: VisualStudioExptTeam.vscodeintellicode
+    uuid: 876e8f93-74d0-4f4f-91b7-34a09f19f444
+  - id: vscode-icons-team.vscode-icons
+    uuid: 9ccc1dd7-7ec4-4a46-bd4f-7d7b8b9d322a
+  - id: vscodevim.vim
+    uuid: d96e79c6-8b25-4be3-8545-0e0ecefcae03
+  - id: yzhang.markdown-all-in-one
+    uuid: 98790d67-10fa-497c-9113-f6c7489207b2
+  - id: zhuangtongfa.material-theme
+    uuid: 26a529c9-2654-4b95-a63f-02f6a52429e6
+  - id: zokugun.cron-tasks
+    uuid: b7bbbbd5-7a39-4312-87aa-ef6a41de67fb
+  - id: zxh404.vscode-proto3
+    uuid: 1d3d1fb2-0d8f-47ed-bfce-990b8ddfc9d8

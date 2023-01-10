@@ -1,0 +1,13 @@
+# more details at https://github.com/zokugun/vscode-sync-settings
+
+# selected profile, required
+profile: main
+
+# how to run commands before and after events at https://github.com/zokugun/vscode-sync-settings/blob/master/docs/hooks.md
+hooks:
+  post-upload: osascript -e 'display notification "The settings have been uploaded"'
+
+# sync on local file system
+repository:
+  type: file
+  path: ~/git/more/dev-env-setup/codium
