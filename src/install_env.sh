@@ -91,6 +91,21 @@ grep -qxF '  vimlike:arrows = +vimlike(arrows)' $XKB_OPTIONS_REGISTRY_FILE || ec
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier', 'vimlike:arrows']"; # !: we _append_ this option to the ctrl_modifier option from prior steps
 gsettings get org.gnome.desktop.input-sources xkb-options
 
+#########################
+## install keynav
+##
+## ref
+##  - https://www.semicomplete.com/projects/keynav/
+##
+## notes
+##  - `ctrl` + `;` -> begin keynav selection
+##  - `h`, `i`, `j`, `l` -> select the part of the screen
+##  - `shift` + `h`,`i`,`j`,`k` -> change the last selection you made to the new key
+##  - `space` -> click on selection
+##  - `semicolon` -> move to the selection
+#########################
+sudo apt-get install keynav
+grep -qxF 'keynav' ~/.profile || echo '\n# start keynav in background\n(keynav && echo "keynav started" || echo "keynav already running") &' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
 ## make sure your pop-os laptop always starts in battery saver mode
