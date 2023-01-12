@@ -9,9 +9,9 @@ alias pbpaste='xclip -selection clipboard -o'
 alias getuuid='uuidgen | tr -d "'"\n"'" | pbcopy && echo "'"  ✔ uuid was copied"'"'
 
 # quick test alias
-alias ju='npx jest -c jest.unit.config.ts'
-alias ji='npx jest -c jest.integration.config.ts'
-alias ja='npx jest -c jest.acceptance.config.ts'
+alias ju='npx jest -c jest.unit.config.(ts|js)'
+alias ji='npx jest -c jest.integration.config.(ts|js)'
+alias ja='npx jest -c jest.acceptance.config.(ts|js)'
 alias jal='LOCALLY=true ja'
 
 # quick terraform alias
