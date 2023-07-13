@@ -285,6 +285,17 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
   && sudo apt update \
   && sudo apt install gh -y
+# login to gh
+gh auth login
+
+#######################
+## clone all repos in the organizations you care about
+#######################
+for organization in {ehmpathy,ahbode}; do 
+  gh repo list $organization --limit 1000 | while read -r repo _; do
+    gh repo clone "$repo" "$HOME/git/$repo"
+  done
+done
 
 #######################
 ## install ngrok
