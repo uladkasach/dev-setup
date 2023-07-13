@@ -72,6 +72,9 @@ alias restart.wifi='systemctl restart NetworkManager.service'
 # make it easy to update bashalias
 alias devenv.sync.bashalias='cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases && source ~/.bash_aliases'
 
+# make it easy to pull down the devenv repo
+alias devenv.sync.repo='cd ~/git/more/dev-env-setup && git checkout main && git pull origin HEAD'
+
 # make it easy to suspend and restart and shutdown
 alias power.suspend='systemctl suspend' # todo, swap to `suspend-then-hibernate` when supported
 alias power.off='shutdown -h now '
