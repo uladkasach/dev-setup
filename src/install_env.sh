@@ -170,6 +170,7 @@ sudo apt update && sudo apt install codium -y
 
 # use microsoft extensions lib
 # sudo find / -name product.json # reference for finding the full one
+mkdir ~/.config/VSCodium; # this dir may already exist if you've opened codium before
 touch ~/.config/VSCodium/product.json;
 echo "
 {
