@@ -4,47 +4,6 @@
 sudo apt install vim -y # note: ~/.zshrc already defines that this is defaulta
 
 #########################
-## install chrome
-#########################
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads;
-sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb;
-google-chrome; # open it; set it as your defualt
-
-#########################
-## install ssh + generate ssh key for your machine
-#########################
-sudo apt-get install ssh -y;
-ssh-keygen; # use the default path to save the key; create your own password
-cat ~/.ssh/id_rsa.pub; # <- view your public key
-# add it to your github account manually
-google-chrome https://github.com/settings/keys
-
-########################
-## clone this repo
-#########################
-mkdir -p ~/git/more;
-git clone git@github.com:uladkasach/dev-env-setup.git ~/git/more/dev-env-setup;
-
-#########################
-## install zsh + oh-my-zsh + spaceship theme
-#########################
-sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases # reset from backup the aliases config
-cp ~/git/more/dev-env-setup/src/zshrc.sh ~/.zshrc # reset from backup the zsh config
-
-# make sure we use zsh by default
-echo "
-exec zsh
-" >> ~/.bashrc
-
-# now open a new terminal
-
-# note: if git icon looks weird, make sure to install font that supports it: https://github.com/tonsky/FiraCode :
-sudo apt install fonts-firacode
-
-#########################
 ## change keybind of caps lock modifier -> control modifier, && caps lock -> escape
 #########################
 sudo apt install xcape -y;
@@ -108,6 +67,57 @@ sudo apt-get install keynav
 grep -qxF 'keynav' ~/.profile || echo '\n# start keynav in background\n(keynav && echo "keynav started" || echo "keynav already running") &' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
+## install chrome
+#########################
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads;
+sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb;
+google-chrome; # open it; set it as your defualt
+
+#########################
+## install ssh + generate ssh key for your machine
+#########################
+sudo apt-get install ssh -y;
+ssh-keygen; # use the default path to save the key; create your own password
+cat ~/.ssh/id_rsa.pub; # <- view your public key
+# add it to your github account manually
+google-chrome https://github.com/settings/keys
+
+########################
+## install 1password chrome
+########################
+# install the chrome extension
+google-chrome https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
+# update the extension keyboard shortcut
+google-chrome chrome://extensions/shortcuts
+
+########################
+## clone this repo
+#########################
+mkdir -p ~/git/more;
+git clone git@github.com:uladkasach/dev-env-setup.git ~/git/more/dev-env-setup;
+
+#########################
+## install zsh + oh-my-zsh + spaceship theme
+#########################
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases # reset from backup the aliases config
+cp ~/git/more/dev-env-setup/src/zshrc.sh ~/.zshrc # reset from backup the zsh config
+
+# make sure we use zsh by default
+echo "
+exec zsh
+" >> ~/.bashrc
+
+# now open a new terminal
+gnome-terminal
+
+# note: if git icon looks weird, make sure to install font that supports it: https://github.com/tonsky/FiraCode :
+sudo apt install fonts-firacode
+
+
+#########################
 ## make sure your pop-os laptop always starts in battery saver mode
 #########################
 grep -qxF 'system76-power profile battery' ~/.profile || echo '\n# start in battery saver\nsystem76-power profile battery' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
@@ -149,7 +159,6 @@ git config --global alias.shove 'push origin HEAD --force-with-lease' # e.g., gi
 #######################
 sudo apt install -y xclip # required for pbpaste, pbcopy
 sudo apt install -y jq  # required for manipulating json in terminal
-
 
 #########################
 ## install codium
