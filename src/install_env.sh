@@ -5,7 +5,14 @@
 sudo apt install gconf2
 gconftool-2 -t str -s /apps/gnome-terminal/keybindings/copy "<Control>c"
 gconftool-2 -t str -s /apps/gnome-terminal/keybindings/paste "<Control>v"
-grep -qxF 'stty intr ^X' ~/.profile || echo '\n# bind interrupt key to ctrl-x\stty intr ^X' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
+
+#########################
+## rebind interrupt key to ctrl+x
+## ref: https://forums.justlinux.com/showthread.php?127575-Saving-stty-settings-permanently-with-automatic-read
+#########################
+stty intr ^X
+stty -g > ~/.stty
+grep -qxF 'stty `cat ~/.stty`' ~/.profile || echo '\n# bind interrupt key to ctrl-x\stty `cat ~/.stty`' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
 
 #########################
 ## install vim
