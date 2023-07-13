@@ -24,10 +24,14 @@ enabled:
     uuid: ee577500-fad7-4a2b-b19a-bf7ef89f766c
   - id: GitHub.copilot
     uuid: 23c4aeee-f844-43cd-b53e-1113e483f1a6
+  - id: github.vscode-github-actions
+    uuid: 04f49bfc-8330-4eee-8237-ea938fb755ef
   - id: hashicorp.terraform
     uuid: 4a23294b-fd16-4c51-9759-da9936474cf8
   - id: jasonnutter.search-node-modules
     uuid: ee108066-df8b-43ae-9a83-e6c11400a759
+  - id: lihui.vs-color-picker
+    uuid: 8f26d05e-e8ef-4156-af0a-ca7778b47006
   - id: mike-co.import-sorter
     uuid: 1cbadbba-0bd6-46fa-a309-76704bf66217
   - id: mrmlnc.vscode-duplicate

@@ -64,6 +64,7 @@
   // spelling
   "cSpell.userWords": [
     "ahbode",
+    "authable",
     "Authed",
     "cacheable",
     "Clientside",
@@ -75,6 +76,7 @@
     "Distractionless",
     "ehmpathy",
     "emptivly",
+    "finsert",
     "freddies",
     "gamification",
     "Grokable",
@@ -82,11 +84,18 @@
     "idempotency",
     "idempotently",
     "lawnfather",
+    "mapbox",
+    "Opunym",
+    "overlayable",
+    "Protools",
     "SIGNUP",
     "steves",
     "Underlight",
     "upsert",
     "upserted",
+    "Usecase",
+    "usecases",
+    "utilitarianly",
     "whodis"
   ],
   "gitlens.codeLens.enabled": false,
@@ -187,5 +196,8 @@
     "plaintext": false,
     "markdown": false
   },
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "➕": true
+  }
 }
