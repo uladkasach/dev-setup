@@ -53,6 +53,12 @@ alias op.signin='eval $(op signin my)'
 # make it easier to open the browser
 alias browser='google-chrome'
 
+# make it easier to open the terminal
+alias terminal='gnome-terminal'
+
+# make it easier to open the file manager
+alias files='nautilus'
+
 # make it easy to speed test internet connection
 alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'
 
