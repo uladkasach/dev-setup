@@ -51,13 +51,13 @@ alias use.keymap.altswap='setxkbmap -option altwin:swap_lalt_lwin' # https://uni
 alias op.signin='eval $(op signin my)'
 
 # make it easier to open the browser
-alias browser='google-chrome'
+alias browser='google-chrome & disown'
 
 # make it easier to open the terminal
-alias terminal='gnome-terminal'
+alias terminal='gnome-terminal & disown'
 
 # make it easier to open the file manager
-alias files='nautilus'
+alias files='nautilus & disown'
 
 # make it easy to speed test internet connection
 alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'
