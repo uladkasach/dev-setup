@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/home/uladkasach/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # theme
 ZSH_THEME="spaceship"
@@ -82,7 +82,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # deeno!
-export DENO_INSTALL="/home/uladkasach/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # use vim by default in terminal
