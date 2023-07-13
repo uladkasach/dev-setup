@@ -70,7 +70,7 @@ grep -qxF 'keynav' ~/.profile || echo '\n# start keynav in background\n(keynav &
 ## install chrome
 #########################
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads;
-sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb;
+sudo apt install ~/Downloads/google-chrome-stable_current_amd64.deb;
 google-chrome; # open it; set it as your defualt
 
 #########################
@@ -80,15 +80,15 @@ sudo apt-get install ssh -y;
 ssh-keygen; # use the default path to save the key; create your own password
 cat ~/.ssh/id_rsa.pub; # <- view your public key
 # add it to your github account manually
-google-chrome https://github.com/settings/keys
+browser https://github.com/settings/keys
 
 ########################
 ## install 1password chrome
 ########################
 # install the chrome extension
-google-chrome https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
+browser https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa
 # update the extension keyboard shortcut
-google-chrome chrome://extensions/shortcuts
+browser chrome://extensions/shortcuts
 
 ########################
 ## clone this repo
@@ -138,8 +138,8 @@ op signin my.1password.com wendy_appleseed@example.com; # swap with your email
 op.signin; # use this bash alias to signin subsequently; it runs `eval $(op signin my)` for us
 
 # see docs
-google-chrome https://support.1password.com/command-line-getting-started/
-google-chrome https://support.1password.com/command-line/
+browser https://support.1password.com/command-line-getting-started/
+browser https://support.1password.com/command-line/
 # for example, you can backup aws config with `op create document ~/.aws/credentials --title .aws/credentials`
 
 ########################
@@ -194,10 +194,10 @@ nvm install 16 # and install latest version
 #########################
 ## install drop box
 #########################
-google-chrome https://www.dropbox.com/install-linux # see what the latest version is; update the link below if its changed
+browser https://www.dropbox.com/install-linux # see what the latest version is; update the link below if its changed
 wget https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb -P ~/Downloads;
-sudo dpkg -i ~/Downloads/dropbox_2020.03.04_amd64.deb;
-# now start dropbox manually; super + / "dropbox"; alt, try `dropbox start`?
+sudo apt install ~/Downloads/dropbox_2020.03.04_amd64.deb;
+dropbox start -i; # install the dropbox daemon and start it for the first time
 
 ##########################
 ## install aws cli
@@ -343,7 +343,7 @@ flatpak install flathub com.slack.Slack
 ## https://protonvpn.com/support/linux-ubuntu-vpn-setup/
 ######################
 wget https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb -P ~/Downloads # check if theres a newer version of the repo install, at the link above;
-sudo dpkg -i ~/Downloads/protonvpn-stable-release_1.0.1-1_all.deb;
+sudo apt install ~/Downloads/protonvpn-stable-release_1.0.1-1_all.deb;
 sudo apt update;
 sudo apt-get install -y protonvpn;
 sudo apt install -y gnome-shell-extension-appindicator gir1.2-appindicator3-0.1; # system tray icon
