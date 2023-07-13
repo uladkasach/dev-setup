@@ -11,3 +11,9 @@ op create document ~/.vpn/ahbode.prod.vpn.main.connection.ovpn --title .vpn/ahbo
 
 # backup our gnome radio channel list
 op create document ~/.gse-radio/channelList.json --title .gse-radio/channelList.json
+
+# backup the datagrip repos
+cd ~/DataGripProjects/ahbode && git status && echo 'push up latest changes if needed'
+
+# backup the codium settings
+codium && echo 'run the "Sync Settings: Upload (user -> repository)" command'
