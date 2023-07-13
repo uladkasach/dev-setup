@@ -283,8 +283,7 @@ ngrok help
 #######################
 ## install gnome extensions: https://support.system76.com/articles/customize-gnome
 #######################
-# sudo apt install -y gnome-shell-extension-appindicator gnome-shell-extension-system-monitor  # show cpu usage in pop os bar; note: will need to restart before it shows
-sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0 gnome-system-monitor && echo 'install the system monitor extension through website for now...' && browser https://extensions.gnome.org/extension/3010/system-monitor-next/ # https://github.com/mgalgs/gnome-shell-system-monitor-applet ; # TODO: switch to not using `-next` version when its supported again
+sudo apt install lm-sensors gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0 gnome-system-monitor && echo 'install the system monitor extension through website for now...' && browser https://extensions.gnome.org/extension/3010/system-monitor-next/ # https://github.com/mgalgs/gnome-shell-system-monitor-applet ; # TODO: switch to not using `-next` version when its supported again
 sudo apt install -y gir1.2-gst-plugins-base-1.0 && echo 'install the radio extension through website for now...' && browser https://extensions.gnome.org/extension/836/internet-radio/ # https://github.com/hslbck/gnome-shell-extension-radio
 sudo apt install -y gnome-shell-pomodoro # show pomodoro extensinon
 logout # login logout of DE
@@ -294,7 +293,7 @@ logout # login logout of DE
 ## restore gnome-extension-radio channel-list
 #######################
 mkdir -p ~/.gse-radio \
-  && rm ~/.gse-radio/channelList.json
+  && rm ~/.gse-radio/channelList.json \
   && op get document .gse-radio/channelList.json --output ~/.gse-radio/channelList.json
 
 #######################
@@ -342,8 +341,9 @@ flatpak install flathub com.slack.Slack
 ## install proton vpn
 ## https://protonvpn.com/support/linux-ubuntu-vpn-setup/
 ######################
-wget https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb -P ~/Downloads # check if theres a newer version of the repo install, at the link above;
-sudo apt install ~/Downloads/protonvpn-stable-release_1.0.1-1_all.deb;
+browser https://protonvpn.com/support/linux-ubuntu-vpn-setup/ # check for latest version, update the below versions as needed
+wget https://protonvpn.com/download/protonvpn-stable-release_1.0.3-2_all.deb -P ~/Downloads
+sudo apt install ~/Downloads/protonvpn-stable-release_1.0.3-2_all.deb;
 sudo apt update;
 sudo apt-get install -y protonvpn;
 sudo apt install -y gnome-shell-extension-appindicator gir1.2-appindicator3-0.1; # system tray icon
