@@ -1,7 +1,16 @@
 #########################
+## enable ctrl-c and ctrl-v as copy and paste in the terminal
+## ref: https://askubuntu.com/questions/53688/making-ctrlc-copy-text-in-gnome-terminal
+#########################
+sudo apt install gconf2
+gconftool-2 -t str -s /apps/gnome-terminal/keybindings/copy "<Control>c"
+gconftool-2 -t str -s /apps/gnome-terminal/keybindings/paste "<Control>v"
+stty intr ^X # since cut doesn't make sense in this context, it can be the new interrupt key, which used to be under ctrl-c
+
+#########################
 ## install vim
 #########################
-sudo apt install vim -y # note: ~/.zshrc already defines that this is defaulta
+sudo apt install vim -y # note: ~/.zshrc already defines that this is default
 
 #########################
 ## change keybind of caps lock modifier -> control modifier, && caps lock -> escape
