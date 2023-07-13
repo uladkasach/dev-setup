@@ -199,6 +199,12 @@ echo "
 }
 " >> ~/.config/VSCodium/product.json;
 
+# restore settings from backup
+codium --install-extension zokugun.sync-settings
+cp ~/git/more/dev-env-setup/codium/sync.settings.yml ~/.config/VSCodium/User/globalStorage/zokugun.sync-settings/settings.yml # install our sync settings
+codium && echo 'run the "Sync Settings: Download (repository -> user)" command' && echo 'open the Sync Settings output pane to see install progress'
+
+
 #########################
 ## install node + npm + nvm
 #########################
