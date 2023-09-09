@@ -117,11 +117,6 @@ gnome-terminal
 sudo apt install fonts-firacode
 
 #########################
-## install bash aliases
-#########################
-cp ~/git/more/dev-env-setup/src/bash_aliases.sh ~/.bash_aliases && source ~/.bash_aliases
-
-#########################
 ## make sure your pop-os laptop always starts in battery saver mode
 #########################
 grep -qxF 'system76-power profile battery' ~/.profile || echo '\n# start in battery saver\nsystem76-power profile battery' >> ~/.profile # writes to `~/.profile` if that line is not alrady there; Why add to `~/.profile` specifically?: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980
