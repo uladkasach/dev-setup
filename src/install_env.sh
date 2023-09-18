@@ -278,9 +278,13 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 ## vpn client (https://support.system76.com/articles/use-openvpn/)
 #########################
 sudo apt install openvpn network-manager-openvpn-gnome -y
-# usage e.g.,:
-#  mkdir -p ~/.vpn && op get document .vpn/main.connection.ovpn --output ~/.vpn/main.connection.ovpn
-#  sudo openvpn --config ~/.vpn/main.connection.ovpn
+
+#########################
+## vpn connections
+#########################
+mkdir -p ~/.vpn \
+  && op get document .vpn/ahbode.dev.vpn.main.connection.ovpn --output ~/.vpn/ahbode.dev.vpn.main.connection.ovpn \
+  && op get document .vpn/ahbode.prod.vpn.main.connection.ovpn --output ~/.vpn/ahbode.prod.vpn.main.connection.ovpn;
 
 ########################
 ## add github cli tool; https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
@@ -297,7 +301,7 @@ gh auth login
 #######################
 ## clone all repos in the organizations you care about
 #######################
-for organization in {ehmpathy,ahbode}; do 
+for organization in {ehmpathy,ahbode}; do
   gh repo list $organization --limit 1000 | while read -r repo _; do
     gh repo clone "$repo" "$HOME/git/$repo"
   done

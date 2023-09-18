@@ -66,6 +66,7 @@
     "ahbode",
     "authable",
     "Authed",
+    "Autocaptured",
     "cacheable",
     "Clientside",
     "Comms",
@@ -73,6 +74,7 @@
     "declapract",
     "Declastruct",
     "deduped",
+    "Denormalization",
     "Distractionless",
     "ehmpathy",
     "emptivly",
@@ -81,13 +83,16 @@
     "gamification",
     "Grokable",
     "hasha",
+    "hometools",
     "idempotency",
     "idempotently",
     "lawnfather",
+    "localstorage",
     "mapbox",
     "Opunym",
     "overlayable",
     "Protools",
+    "publically",
     "SIGNUP",
     "steves",
     "Underlight",
@@ -199,5 +204,9 @@
   "workbench.editor.showTabs": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "➕": true
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.quickSuggestions": {
+    "other": "inline"
   }
 }

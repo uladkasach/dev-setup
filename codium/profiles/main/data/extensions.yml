@@ -20,6 +20,8 @@ enabled:
     uuid: 4de763bd-505d-4978-9575-2b7696ecf94e
   - id: esbenp.prettier-vscode
     uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+  - id: expo.vscode-expo-tools
+    uuid: b2c4b5bf-9bda-4c81-96b6-d2f28401c4fb
   - id: geddski.macros
     uuid: ee577500-fad7-4a2b-b19a-bf7ef89f766c
   - id: GitHub.copilot
@@ -67,6 +69,6 @@ enabled:
   - id: zhuangtongfa.material-theme
     uuid: 26a529c9-2654-4b95-a63f-02f6a52429e6
   - id: zokugun.cron-tasks
-    uuid: b7bbbbd5-7a39-4312-87aa-ef6a41de67fb
+    uuid: eb05256f-c7aa-4554-95c6-1bb8e30e0cea
   - id: zxh404.vscode-proto3
     uuid: 1d3d1fb2-0d8f-47ed-bfce-990b8ddfc9d8
