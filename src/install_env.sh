@@ -199,6 +199,13 @@ echo "
 }
 " >> ~/.config/VSCodium/product.json;
 
+# setup copilot; https://github.com/VSCodium/vscodium/discussions/1487
+sudo vim /usr/share/codium/resources/app/product.json; # replace "GitHub.copilot" to ["inlineCompletions","inlineCompletionsNew","inlineCompletionsAdditions","textDocumentNotebook","interactive","terminalDataWriteEvent"]
+curl https://github.com/login/device/code -X POST -d 'client_id=01ab8ac9400c4e429b23&scope=user:email'; # request auth code for vscodium+copilot
+browser https://github.com/login/device/ # enter your user_code to grant this vscodeium client_id access to your email
+export YOUR_DEVICE_CODE="__your_device_code__" # get the device code from earlier
+curl https://github.com/login/oauth/access_token -X POST -d "client_id=01ab8ac9400c4e429b23&scope=user:email&device_code=$YOUR_DEVICE_CODE&grant_type=urn:ietf:params:oauth:grant-type:device_code" # exchange it for an access token
+
 # restore settings from backup
 codium --install-extension zokugun.sync-settings
 cp ~/git/more/dev-env-setup/codium/sync.settings.yml ~/.config/VSCodium/User/globalStorage/zokugun.sync-settings/settings.yml # install our sync settings
