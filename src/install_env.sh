@@ -201,6 +201,9 @@ echo "
 
 # setup copilot; https://github.com/VSCodium/vscodium/discussions/1487
 sudo vim /usr/share/codium/resources/app/product.json; # replace "GitHub.copilot" to ["inlineCompletions","inlineCompletionsNew","inlineCompletionsAdditions","textDocumentNotebook","interactive","terminalDataWriteEvent"]
+echo "manually sign out of github in the bottom left corner user icon in vscodium"
+echo "manually press sign into github copilot in that same link. it will prompt to enter a personal-access-token via web."
+echo "if the pat generated via link doesnt work, try again but instead of using that web url, do the following steps to get a working token"
 curl https://github.com/login/device/code -X POST -d 'client_id=01ab8ac9400c4e429b23&scope=user:email'; # request auth code for vscodium+copilot
 browser https://github.com/login/device/ # enter your user_code to grant this vscodeium client_id access to your email
 export YOUR_DEVICE_CODE="__your_device_code__" # get the device code from earlier
