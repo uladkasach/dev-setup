@@ -260,16 +260,35 @@ which tfenv
 
 #########################
 ## install docker + docker compose
+## ref: https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 #########################
-sudo apt install -y docker.io
+# add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# add the repository to apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+# install the packages
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# allow docker to run without root
 sudo systemctl enable --now docker
 sudo groupadd docker
 sudo usermod -aG docker $USER # run w/o root attempt 1
 sudo gpasswd -a $USER docker # run w/o root attempt 2
-su - $USER # relogin
-docker --version
-docker run hello-world # check we can run without root
-sudo apt install -y docker-compose
+
+# verify the installation
+docker --version # verify it was installed
+docker run hello-world # verify we can run without root
+docker compose version # verify we installed docker compose
 
 #########################
 ## install psql
