@@ -232,8 +232,11 @@ dropbox start -i; # install the dropbox daemon and start it for the first time
 
 ##########################
 ## install aws cli
+## https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ##########################
-sudo apt-get install awscli -y;
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
 # restore config into '~/.aws`
 mkdir -p ~/.aws
