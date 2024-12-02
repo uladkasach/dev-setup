@@ -140,16 +140,21 @@ grep -qxF 'system76-power profile battery' ~/.profile || echo '\n# start in batt
 #########################
 ## install one password (https://support.1password.com/command-line-getting-started/)
 #########################
-browser https://app-updates.agilebits.com/product_history/CLI # <- check what the latest version is. we have it writen as 1.8.0 atm, but it will probably change by the time you use it. update your commands accordingly
-wget https://cache.agilebits.com/dist/1P/op/pkg/v1.8.0/op_linux_386_v1.8.0.zip -P ~/Downloads;
-unzip ~/Downloads/op_linux_386_v1.8.0.zip -d ~/Downloads/op_linux_386_v1.8.0;
-gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22;
-gpg --verify ~/Downloads/op_linux_386_v1.8.0/op.sig ~/Downloads/op_linux_386_v1.8.0/op;
-sudo mv ~/Downloads/op_linux_386_v1.8.0/op /usr/local/bin;
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg && \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | \
+sudo tee /etc/apt/sources.list.d/1password.list && \
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/ && \
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | \
+sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol && \
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22 && \
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg && \
+sudo apt update && sudo apt install 1password-cli
 op --version;
 
 # signin
-op signin my.1password.com wendy_appleseed@example.com; # swap with your email
+op account add --address my.1password.com --email user@example.org # swap with your email
 op.signin; # use this bash alias to signin subsequently; it runs `eval $(op signin my)` for us
 
 # see docs

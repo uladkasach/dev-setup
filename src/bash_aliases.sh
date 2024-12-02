@@ -36,7 +36,7 @@ alias use.ahbode.dev.vpn="sudo openvpn --config ~/.vpn/ahbode.dev.vpn.main.conne
 alias use.ahbode.prod.vpn="sudo openvpn --config ~/.vpn/ahbode.prod.vpn.main.connection.ovpn"
 
 # github token
-alias use.github.admin='export GITHUB_TOKEN=$(op get item github.admin.pat | jq -r .details.password)'
+alias use.github.admin='export GITHUB_TOKEN=$(op item get github.admin.pat --fields label=password --format json | jq -r .value)'
 
 # terraform caching, for when on slow internet
 alias use.terraform.caching='mkdir -p $HOME/.terraform.d/plugin-cache && export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"' # https://www.terraform.io/docs/cli/config/config-file.html#provider-plugin-cache
@@ -48,7 +48,7 @@ alias use.mtu.1400='sudo ifconfig wlp113s0 mtu 1400' # for when you're on older 
 alias use.keymap.altswap='setxkbmap -option altwin:swap_lalt_lwin' # https://unix.stackexchange.com/a/367016/77522
 
 # make signing into onepass easier
-alias op.signin='eval $(op signin my)'
+alias op.signin='eval $(op signin)'
 
 # make it easier to open the browser
 alias browser='google-chrome & disown'
@@ -62,7 +62,7 @@ alias files='nautilus & disown'
 # make it easy to speed test internet connection
 alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'
 
-# make it easy to change brightness beyond default brightness range
+# make it easy to change brightness beyond default brightness range; e.g., brightness 0.6
 alias brightness='xrandr --output eDP-1 --brightness'
 
 # make it easy to restart utils
